@@ -34,6 +34,7 @@ version: 3.1
 ├── 同花顺热点     → 当日强势股 + 题材归因 reason tags (零鉴权 73ms)
 ├── 同花顺北向     → hgt/sgt 分钟资金流向 + 本地自缓存历史
 ├── 百度股市通     → 概念板块归属 (HTTP)
+├── 东财 push2     → 个股资金流向 分钟级 (V3.1 替换百度PAE)
 ├── 龙虎榜席位     → 上榜记录 + 买卖席位 TOP5 + 机构动向 (datacenter-web)
 ├── 全市场龙虎榜   → 每日全市场上榜股票 + 净买额排名 (datacenter-web)
 ├── 限售解禁日历   → 历史解禁 + 未来90天待解禁 (datacenter-web)
@@ -44,7 +45,6 @@ version: 3.1
 ├── 大宗交易       → 成交价/量 + 买卖方营业部 (datacenter-web)
 ├── 股东户数变化   → 季度股东户数 + 环比变化 (datacenter-web)
 ├── 分红送转       → 历史每股派息/送股/转增 (datacenter-web)
-├── 个股资金流分钟级 → 盘中主力/大单/中单/小单 分钟净流入 (push2)
 └── 个股资金流120日 → 主力/大单/中单/小单 日级净流入 (push2his)
 
 新闻层
@@ -802,7 +802,7 @@ def eastmoney_fund_flow_minute(code: str) -> list[dict]:
         "fields1": "f1,f2,f3,f7",
         "fields2": "f51,f52,f53,f54,f55,f56,f57",
     }
-    r = requests.get(url, timeout=10)
+    r = requests.get(url, params=params, timeout=10)
     d = r.json()
 
     rows = []

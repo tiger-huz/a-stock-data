@@ -399,6 +399,10 @@ Just tell your AI assistant:
 | Daily Dragon Tiger | "Which stocks had the highest net buy on today's dragon tiger board" |
 | Lockup Expiry | "Any lockup expiries coming up in the next 3 months for this stock" |
 | Industry Rotation | "Which industries are up the most today, where is money flowing" |
+| Margin Trading | "What's the recent trend in margin balance for 600519" |
+| Block Trades | "Any recent block trades for this stock, premium or discount" |
+| Shareholder Count | "Is 000858 shareholder count increasing or decreasing" |
+| Dividends | "How much has Moutai paid in dividends over the years" |
 | News & Filings | "Pull recent news and filings for 300476" |
 | Batch Compare | "Compare valuations of these 5 semiconductor stocks" |
 
